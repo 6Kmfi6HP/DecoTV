@@ -4,16 +4,16 @@
 const nextConfig = {
   // 根据环境自动选择输出模式：Vercel自动处理，Docker使用standalone
   ...(process.env.VERCEL ? {} : { output: 'standalone' }),
-  eslint: {
-    dirs: ['src'],
-  },
 
   reactStrictMode: false,
-  swcMinify: false,
 
-  experimental: {
-    instrumentationHook: process.env.NODE_ENV === 'production',
-  },
+  // Next.js 16: Turbopack is now default, configure it here
+  turbopack: {},
+
+  // Next.js 16: instrumentation hook is now stable
+  experimental: {},
+
+
 
   // Uncoment to add domain whitelist
   images: {
